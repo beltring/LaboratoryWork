@@ -3,8 +3,6 @@ package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 public class Car {
     private final int RELEASE_FIRST_CAR = 1885;
     
-    private static int carAmount;
-    
     private String bodyNumber;
     private int year;
     private String brand;
@@ -39,14 +37,6 @@ public class Car {
         warrantyPeriod = car.warrantyPeriod;
     }
 
-    public static int getCarAmount() {
-        return carAmount;
-    }
-
-    public static void setCarAmount(int carAmount) {
-        Car.carAmount = carAmount;
-    }
-
     public String getBodyNumber() {
         return bodyNumber;
     }
@@ -60,7 +50,7 @@ public class Car {
     }
 
     public void setYear(int year) {
-        if(year > RELEASE_FIRST_CAR){ //!!!!!!!!
+        if(year > RELEASE_FIRST_CAR){
           this.year = year;  
         }
     }
@@ -104,8 +94,8 @@ public class Car {
     }
     
     @Override //Консультант консультирует Менаджер продаёт
-    public String toString(){ // !!!!
-        return brand + "(year:" + year + ", cost:" + cost
+    public String toString(){ 
+        return brand + "(body number:"+bodyNumber +", year:" + year + ", cost:" + cost
                 +"$, kilometrage:" + kilometrage + ", warranty period:" 
                 + warrantyPeriod +" year)";
     }
