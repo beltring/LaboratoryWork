@@ -1,0 +1,2 @@
+Main-Class: by.bntu.fitr.povt.beltring.javalabs.lab12.controller.Lab12
+
