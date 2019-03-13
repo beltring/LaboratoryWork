@@ -1,6 +1,8 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.controller;
 
+import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Car;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.CarShow;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Lorry;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.logic.Manager;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.util.UserInput;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.view.Printer;
@@ -14,6 +16,9 @@ public class Lab10 {
         String nameCarShow = UserInput.inputStr("Enter the name of the car show:");
         CarShow carShow = new CarShow(nameCarShow);
         carShow.addRandom(4);
+        
+        Car lorry = new Lorry(2, 0.89, "HTG78T8F", 2007, "GAZ", 271234, 308750, 5); // refactor
+        carShow.addObject(lorry);
         
         while(notExit){
             Printer.print("\n1.List of available cars.\n2.Add car.\n3.Remove car.\n"
