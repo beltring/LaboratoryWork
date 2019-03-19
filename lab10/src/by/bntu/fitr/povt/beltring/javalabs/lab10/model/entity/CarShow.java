@@ -45,19 +45,7 @@ public class CarShow { //автосалон
         this.cars = cars;
     }
     
-    public void add(){ // ??????????????????? ввод добавить в util
-        cars = Arrays.copyOf(cars, cars.length + 1);
-        
-        String bodyNumber = UserInput.inputStr("Enter the number of the car body(8 characters):");
-        int year = UserInput.inputInt("Enter the year of release:");
-        String brand = UserInput.inputStr("Enter the brand of the car:");
-        int cost = UserInput.inputInt("Enter the cost:");
-        int kilometrage = UserInput.inputInt("Enter the mileage of the car:");
-        int warrantyPeriod = UserInput.inputInt("Enter the warranty period:");
-        cars[cars.length - 1] = new Car(bodyNumber, year, brand, cost, kilometrage, warrantyPeriod);
-    }
-    
-    public void addObject(Car car){
+    public void add(Car car){ 
         cars = Arrays.copyOf(cars, cars.length + 1);
         
         cars[cars.length - 1] = car;
@@ -71,9 +59,7 @@ public class CarShow { //автосалон
         }
     }
     
-    public void remove(){
-        String bodyNumber = UserInput.inputStr("Enter the number of the car body:");
-        
+    public void remove(String bodyNumber){
         for(int i = 0;i < cars.length;i++){
             if(cars[i].getBodyNumber().equals(bodyNumber)){
                 for(int j = i; j < cars.length - 1; j++){

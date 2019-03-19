@@ -20,6 +20,17 @@ public class Initialization {
         return new Car(bodyNumber,year,brand,cost,kilometrage,warrantyPeriod);
     }
     
+    public static Car createCarObject(){
+        String brand = UserInput.inputStr("Enter brand:");
+        String bodyNumber = UserInput.inputStr("Enter body number:");
+        int year = UserInput.inputInt("Enter the year of release:");
+        int cost = UserInput.inputInt("Enter the cost:");
+        int kilometrage = UserInput.inputInt("Enter the mileage of the car:");
+        int warrantyPeriod = UserInput.inputInt("Enter the warranty period:");
+        
+        return new Car(bodyNumber,year,brand,cost,kilometrage,warrantyPeriod);
+    }
+    
     public static int rnd(int min, int max){
 	max -= min;
 	return (int) (Math.random() * ++max) + min;
