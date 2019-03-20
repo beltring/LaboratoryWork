@@ -82,7 +82,8 @@ public class CarShow { //автосалон
     @Override
     public String toString(){
        StringBuilder builder;
-       builder = new StringBuilder("\t\t\t\t***Car show " + name + "***\nList of available cars:\n");
+       builder = new StringBuilder("\t\t\t\t***Car show " + name 
+               + "***\nList of available cars:\n");
        
         for (Car car : cars) {
             builder.append(car.toString()).append("\n");

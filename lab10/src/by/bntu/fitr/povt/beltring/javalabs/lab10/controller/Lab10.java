@@ -19,13 +19,19 @@ public class Lab10 {
         CarShow carShow = new CarShow(nameCarShow);
         carShow.addRandom(4);
         
-        Lorry lorry = new Lorry(2, 0.89, "HTG78T8F", 2007, 
-                "GAZ", 27124, 308750, 5); // refactor
+        Car lorry = new Lorry(2, 0.89, "HTG78T8F", 2007, 
+                "GAZ", 27124, 308750, 5); // refactoring
         carShow.add(lorry);
         
-        MiniBus miniBus = new MiniBus(10, "LPUTR67E", 2019, 
-                "Mercedes-benz",151260, 100, 3); // ref
+        Car lorry1 = new Lorry(3.7, 0.89, "HHHHHH88", 2010, 
+                "Mercedes-benz", 27124, 38750, 5); // refactoring
+        carShow.add(lorry1); // refactoring
+        
+        Car miniBus = new MiniBus(10, "LPUTR67E", 2019, 
+                "Mercedes-benz",151260, 100, 3); // refactoring
         carShow.add(miniBus);
+        
+        Printer.print(Manager.MaximumCargoCapacity(carShow));
         
 //        System.out.println(lorry.getCost());
 //        System.out.println(lorry.getCargoCapacity());

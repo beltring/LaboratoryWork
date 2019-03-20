@@ -2,6 +2,7 @@ package by.bntu.fitr.povt.beltring.javalabs.lab10.model.logic;
 
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Car;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.CarShow;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Lorry;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.view.Printer;
 
 public class Manager { //отдел продаж (+ отдел ремонта в отдельный класс )
@@ -40,6 +41,24 @@ public class Manager { //отдел продаж (+ отдел ремонта в
                 Printer.print("\n" + carShow.get(i) + "\n");
             }
         }
+    }
+    
+    public static Car MaximumCargoCapacity(CarShow carShow){
+        double max = 0;
+        Car maxCar = carShow.get(0);
+        Lorry lorry;
+        
+        for(int i = 0; i < carShow.size(); i++){
+            if(carShow.get(i) instanceof Lorry){
+                lorry = (Lorry)carShow.get(i);
+                if(max < lorry.getCargoCapacity()){
+                    max = lorry.getCargoCapacity();
+                    maxCar = carShow.get(i);
+                }
+            }
+        }
+      
+        return maxCar;
     }
     
     // контейнер динамический и ограниченный
