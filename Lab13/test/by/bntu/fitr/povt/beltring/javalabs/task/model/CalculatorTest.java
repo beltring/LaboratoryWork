@@ -1,5 +1,7 @@
 package by.bntu.fitr.povt.beltring.javalabs.task.model;
 
+import by.bntu.fitr.povt.beltring.javalabs.task.model.entity.Matrix;
+import by.bntu.fitr.povt.beltring.javalabs.task.model.logic.Calculator;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -13,11 +15,11 @@ public class CalculatorTest {
      */
     @Test
     public void testCalculateSumOddRow() {
-        Matrix matrix = new Matrix(new double[][] {
-            {7,3,9},
-            {2,4,3},
-            {-7,3,9},
-            {-3,5,7}
+        Matrix matrix = new Matrix(new int[][] {
+            {7,3,9,7},
+            {2,4,3,5},
+            {-7,3,9,11},
+            {-3,5,7,1}
         });
         int expResult = 2;
         int result = Calculator.calculateSumOddRow(matrix);
@@ -33,7 +35,7 @@ public class CalculatorTest {
     
     @Test
     public void testCalculateSumOddRow2(){
-        Matrix matrix = new Matrix(new double[][] {
+        Matrix matrix = new Matrix(new int[][] {
             {1,2,5},
             {2,4,3},
             {-2,5,7}
@@ -45,7 +47,7 @@ public class CalculatorTest {
     
     @Test
     public void testCalculateSumOddRow3(){
-        Matrix matrix = new Matrix(new double[][] {
+        Matrix matrix = new Matrix(new int[][] {
             {0,0,0},
             {0,0,0},
             {0,0,0}
