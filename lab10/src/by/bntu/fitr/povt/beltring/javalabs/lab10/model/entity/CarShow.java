@@ -1,7 +1,6 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 
 import by.bntu.fitr.povt.beltring.javalabs.lab10.util.Initialization;
-import by.bntu.fitr.povt.beltring.javalabs.lab10.util.UserInput;
 import java.util.Arrays;
 
 public class CarShow { //автосалон
@@ -15,7 +14,7 @@ public class CarShow { //автосалон
    
     public CarShow(String name) {
         this.name = name;
-        this.cars = new Car[0];
+        cars = new Car[0];
     }
 
     public CarShow(String name, Car[] cars) {
@@ -45,6 +44,14 @@ public class CarShow { //автосалон
         this.cars = cars;
     }
     
+    public Car get(int index){
+        return cars[index];
+    }
+    
+    public int size(){
+       return cars.length;
+    }
+    
     public void add(Car car){ 
         cars = Arrays.copyOf(cars, cars.length + 1);
         
@@ -69,14 +76,6 @@ public class CarShow { //автосалон
                 break;
             }
         }
-    }
-    
-    public Car get(int index){
-        return cars[index];
-    }
-    
-    public int size(){
-       return cars.length;
     }
    
     @Override

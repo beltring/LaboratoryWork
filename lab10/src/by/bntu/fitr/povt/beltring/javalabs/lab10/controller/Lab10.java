@@ -1,10 +1,11 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.controller;
 
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Car;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.CarDealerNetwork;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.CarShow;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Lorry;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.MiniBus;
-import by.bntu.fitr.povt.beltring.javalabs.lab10.model.logic.Manager;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.model.logic.Сonsultant;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.util.Initialization;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.util.UserInput;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.view.Printer;
@@ -19,6 +20,15 @@ public class Lab10 {
         CarShow carShow = new CarShow(nameCarShow);
         carShow.addRandom(4);
         
+//        CarShow carShow1 = new CarShow("BMW");
+//        carShow1.addRandom(5);
+//        
+//        CarDealerNetwork network = new CarDealerNetwork("Minsk");
+//        network.add(carShow);
+//        Printer.print(network);
+//        network.add(carShow1);
+//        Printer.print(network);     
+
         Car lorry = new Lorry(2, 0.89, "HTG78T8F", 2007, 
                 "GAZ", 27124, 308750, 5); // refactoring
         carShow.add(lorry);
@@ -30,8 +40,7 @@ public class Lab10 {
         Car miniBus = new MiniBus(10, "LPUTR67E", 2019, 
                 "Mercedes-benz",151260, 100, 3); // refactoring
         carShow.add(miniBus);
-        
-        Printer.print(Manager.MaximumCargoCapacity(carShow));
+       
         
 //        System.out.println(lorry.getCost());
 //        System.out.println(lorry.getCargoCapacity());
@@ -50,10 +59,10 @@ public class Lab10 {
                 case 3: String bodyNumber = UserInput.inputStr("Enter "
                         + "the number of the car body:");
                         carShow.remove(bodyNumber); break;
-                case 4: Printer.print(Manager.MaximumCarCost(carShow) + "\n"); break;
-                case 5: Printer.print(Manager.MinimumCarCost(carShow) + "\n"); break;
+                case 4: Printer.print(Сonsultant.MaximumCarCost(carShow) + "\n"); break;
+                case 5: Printer.print(Сonsultant.MinimumCarCost(carShow) + "\n"); break;
                 case 6: int year = UserInput.inputInt("Enter car year:"); 
-                        Manager.searchByYear(carShow, year); break;
+                        Сonsultant.searchByYear(carShow, year); break;
                 case 0: notExit = false; break;
             }
         }        
