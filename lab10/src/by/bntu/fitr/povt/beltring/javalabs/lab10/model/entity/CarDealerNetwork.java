@@ -3,16 +3,18 @@ package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 import java.util.Arrays;
 
 public class CarDealerNetwork {
+    private final int DEFAULT_SIZE = 0;
+    
     private Car[][] carShows;
     private String city;
 
     public CarDealerNetwork() {
-        carShows = new Car[0][0];
+        carShows = new Car[DEFAULT_SIZE][DEFAULT_SIZE];
     }
 
     public CarDealerNetwork(String city) {
         this.city = city;
-        carShows = new Car[0][0];
+        carShows = new Car[DEFAULT_SIZE][DEFAULT_SIZE];
     }
     
     public CarDealerNetwork(Car[][] carShows, String city) {
