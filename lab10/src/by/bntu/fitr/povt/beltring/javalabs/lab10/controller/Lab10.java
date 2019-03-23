@@ -18,7 +18,7 @@ public class Lab10 {
         
         String nameCarShow = UserInput.inputStr("Enter the name of the car show:");
         CarShow carShow = new CarShow(nameCarShow);
-        carShow.addRandom(4);
+//        carShow.addRandom(4);
         
 //        CarShow carShow1 = new CarShow("BMW");
 //        carShow1.addRandom(5);
@@ -59,8 +59,8 @@ public class Lab10 {
                 case 3: String bodyNumber = UserInput.inputStr("Enter "
                         + "the number of the car body:");
                         carShow.remove(bodyNumber); break;
-                case 4: Printer.print(Сonsultant.MaximumCarCost(carShow) + "\n"); break;
-                case 5: Printer.print(Сonsultant.MinimumCarCost(carShow) + "\n"); break;
+                case 4: Printer.print(Сonsultant.maximumCarCost(carShow) + "\n"); break;
+                case 5: Printer.print(Сonsultant.minimumCarCost(carShow) + "\n"); break;
                 case 6: int year = UserInput.inputInt("Enter car year:"); 
                         Сonsultant.searchByYear(carShow, year); break;
                 case 0: notExit = false; break;

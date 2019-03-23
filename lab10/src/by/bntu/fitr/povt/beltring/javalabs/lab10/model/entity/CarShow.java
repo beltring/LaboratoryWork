@@ -1,11 +1,10 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 
-import by.bntu.fitr.povt.beltring.javalabs.lab10.util.Initialization;
 import java.util.Arrays;
 
 public class CarShow { //автосалон
     
-    private String name;//ref
+    private String name;
     private Car[] cars;
 
     public CarShow() {
@@ -58,14 +57,6 @@ public class CarShow { //автосалон
         cars[cars.length - 1] = car;
     }
     
-    public void addRandom(int count){
-        
-        for(int i = 0;i < count;i++){
-            cars = Arrays.copyOf(cars, cars.length + 1);
-            cars[i] = Initialization.createCarObject(name);
-        }
-    }
-    
     public void remove(String bodyNumber){
         for(int i = 0;i < cars.length;i++){
             if(cars[i].getBodyNumber().equals(bodyNumber)){
@@ -81,8 +72,7 @@ public class CarShow { //автосалон
     @Override
     public String toString(){
        StringBuilder builder;
-       builder = new StringBuilder("\t\t\t\t***Car show " + name 
-               + "***\nList of available cars:\n");
+       builder = new StringBuilder(name + "\n");
        
         for (Car car : cars) {
             builder.append(car.toString()).append("\n");

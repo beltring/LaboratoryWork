@@ -1,8 +1,8 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 
+import by.bntu.fitr.povt.beltring.javalabs.lab10.util.Const;
+
 public class Car {
-    private final int RELEASE_FIRST_CAR = 1885;
-    
     private String bodyNumber;
     private int year;
     private String brand;
@@ -11,12 +11,12 @@ public class Car {
     private int warrantyPeriod;
 
     public Car() {
-        bodyNumber = "xxxxxxx";
-        year = 0;
+        bodyNumber = "";
+        year = Const.DEFAULT_VALUE;
         brand = "no name";
-        cost = 0;
-        kilometrage = 0;
-        warrantyPeriod = 0;
+        cost = Const.DEFAULT_VALUE;
+        kilometrage = Const.DEFAULT_VALUE;
+        warrantyPeriod = Const.DEFAULT_VALUE;
     }
     
     public Car(String bodyNumber, int year, String brand, int cost, int kilometrage, int warrantyPeriod){
@@ -50,7 +50,7 @@ public class Car {
     }
 
     public void setYear(int year) {
-        if(year > RELEASE_FIRST_CAR){
+        if(year > Const.RELEASE_FIRST_CAR){
           this.year = year;  
         }
     }
@@ -93,10 +93,10 @@ public class Car {
         }
     }
     
-    @Override //Консультант консультирует Менаджер продаёт
+    @Override
     public String toString(){ 
-        return brand + "(body number:"+bodyNumber +", year:" + year + ", cost:" + cost
-                +"$, kilometrage:" + kilometrage + ", warranty period:" 
-                + warrantyPeriod +" year)";
+        return brand + ":  body number:"+bodyNumber +", year:" + year 
+                + ", cost:" + cost + "$, kilometrage:" + kilometrage 
+                + ", warranty period:" + warrantyPeriod +" year";
     }
 }

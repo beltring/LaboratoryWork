@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class CarDealerNetwork {
     private final int DEFAULT_SIZE = 0;
     
-    private Car[][] carShows;
+    private Car[][] carShows; // ref CarShow
     private String city;
 
     public CarDealerNetwork() {
@@ -43,7 +43,7 @@ public class CarDealerNetwork {
     }
 
     @Override
-    public String toString() {
+    public String toString() {//ref
         StringBuilder builder;
         builder = new StringBuilder("\t\t\t\t" + city + "\n");
         

@@ -1,6 +1,6 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 
-public class Lorry extends Car { // грузовик
+public class Lorry extends Car { // грузовик тоже что и минибас
     private final double MIN_CARGO_CAPACITY = 1.5; // минимальная грузоподъемность
     
     private double cargoCapacity; // грузоподъемность
@@ -45,10 +45,8 @@ public class Lorry extends Car { // грузовик
 
     @Override
     public String toString() {
-        return super.getBrand() + "(body number:"+ super.getBodyNumber() +", year:" 
-                + super.getYear() + ", cost:" + super.getCost() + "$, kilometrage:" 
-                + super.getKilometrage() + ", warranty period:" + super.getWarrantyPeriod() 
-                + " year" + ", cargo capacity:" + cargoCapacity + " tons', cargo height:" 
+        return super.toString() + ", cargo capacity:" + cargoCapacity 
+                + " tons', cargo height:" 
                 + cargoHeight + " metres')";
     }
     
