@@ -3,7 +3,7 @@ package by.bntu.fitr.povt.beltring.javalabs.lab10.model.logic;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Car;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.CarShow;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Lorry;
-import by.bntu.fitr.povt.beltring.javalabs.lab10.view.Printer;
+import java.util.Arrays;
 
 public class Сonsultant {  
     public static Car maximumCarCost(CarShow carShow){
@@ -38,17 +38,18 @@ public class Сonsultant {
         return minCar;
     }
     
-    public static void searchByYear(CarShow carShow, int year){ //ref return array Car
-        boolean check = true;
+    public static Car[] searchByYear(CarShow carShow, int year){
+        Car[] cars = new Car[0];
         
         for (int i = 0; i < carShow.size(); i++) {
+            
             if(carShow.get(i).getYear() == year){
-                Printer.print("\n" + carShow.get(i) + "\n");
-                check = false;
+                cars = Arrays.copyOf(cars, cars.length + 1);
+                cars[cars.length - 1] = carShow.get(i);
             }
         }
         
-        Printer.print("There is no such car");
+        return cars;
     }
     
     public static Car maximumCargoCapacity(CarShow carShow){

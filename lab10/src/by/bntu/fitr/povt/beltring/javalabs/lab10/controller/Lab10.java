@@ -9,41 +9,26 @@ import by.bntu.fitr.povt.beltring.javalabs.lab10.model.logic.Сonsultant;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.util.Initialization;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.util.UserInput;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.view.Printer;
+import java.util.Arrays;
 
 public class Lab10 {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) { // для тестов 
         boolean notExit = true;
         int choice;
         
-        String nameCarShow = UserInput.inputStr("Enter the name of the car show:");
-        CarShow carShow = new CarShow(nameCarShow);
-//        carShow.addRandom(4);
+        CarShow carShow1 = new CarShow("AUDI");
+        //CarShow carShow2 = new CarShow("BMW");
         
-//        CarShow carShow1 = new CarShow("BMW");
-//        carShow1.addRandom(5);
-//        
-//        CarDealerNetwork network = new CarDealerNetwork("Minsk");
-//        network.add(carShow);
-//        Printer.print(network);
-//        network.add(carShow1);
-//        Printer.print(network);     
-
-        Car lorry = new Lorry(2, 0.89, "HTG78T8F", 2007, 
-                "GAZ", 27124, 308750, 5); // refactoring
-        carShow.add(lorry);
+        for (int i = 0; i < 4; i++) {
+            carShow1.add(Initialization.createCarObject("AUDI"));
+        }
+  
+        //carShow2.add(Initialization.createCarObject("BMW"));
         
-        Car lorry1 = new Lorry(3.7, 0.89, "HHHHHH88", 2010, 
-                "Mercedes-benz", 27124, 38750, 5); // refactoring
-        carShow.add(lorry1); // refactoring
-        
-        Car miniBus = new MiniBus(10, "LPUTR67E", 2019, 
-                "Mercedes-benz",151260, 100, 3); // refactoring
-        carShow.add(miniBus);
-       
-        
-//        System.out.println(lorry.getCost());
-//        System.out.println(lorry.getCargoCapacity());
+        CarDealerNetwork carNetwork = new CarDealerNetwork("Minsk");
+        carNetwork.add(carShow1);
+        //carNetwork.add(carShow2);    
         
         while(notExit){
             Printer.print("\n1.List of available cars.\n2.Add car.\n"
@@ -53,16 +38,17 @@ public class Lab10 {
             choice = UserInput.inputInt("\nSelect menu item:");
             
             switch(choice){
-                case 1: Printer.print(carShow); break;
+                case 1: Printer.print(carNetwork); break;
                 case 2: Car car = Initialization.createCarObject(); 
-                carShow.add(car); break;
+                carShow1.add(car); break;
                 case 3: String bodyNumber = UserInput.inputStr("Enter "
                         + "the number of the car body:");
-                        carShow.remove(bodyNumber); break;
-                case 4: Printer.print(Сonsultant.maximumCarCost(carShow) + "\n"); break;
-                case 5: Printer.print(Сonsultant.minimumCarCost(carShow) + "\n"); break;
+                        carShow1.remove(bodyNumber); break;
+                case 4: Printer.print(Сonsultant.maximumCarCost(carShow1) + "\n"); break;
+                case 5: Printer.print(Сonsultant.minimumCarCost(carShow1) + "\n"); break;
                 case 6: int year = UserInput.inputInt("Enter car year:"); 
-                        Сonsultant.searchByYear(carShow, year); break;
+                        Car[] cars = Сonsultant.searchByYear(carShow1, year); 
+                        Printer.print(Arrays.toString(cars)); break;
                 case 0: notExit = false; break;
             }
         }        

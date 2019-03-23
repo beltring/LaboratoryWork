@@ -5,19 +5,19 @@ import java.util.Arrays;
 public class CarDealerNetwork {
     private final int DEFAULT_SIZE = 0;
     
-    private Car[][] carShows; // ref CarShow
+    private CarShow[] carShows; // ref CarShow
     private String city;
 
     public CarDealerNetwork() {
-        carShows = new Car[DEFAULT_SIZE][DEFAULT_SIZE];
+        carShows = new CarShow[DEFAULT_SIZE];
     }
 
     public CarDealerNetwork(String city) {
         this.city = city;
-        carShows = new Car[DEFAULT_SIZE][DEFAULT_SIZE];
+        carShows = new CarShow[DEFAULT_SIZE];
     }
-    
-    public CarDealerNetwork(Car[][] carShows, String city) {
+
+    public CarDealerNetwork(CarShow[] carShows, String city) {
         this.carShows = carShows;
         this.city = city;
     }
@@ -39,19 +39,16 @@ public class CarDealerNetwork {
     public void add(CarShow carShow){
         carShows = Arrays.copyOf(carShows, carShows.length + 1);
         
-        carShows[carShows.length - 1] = carShow.getCars();
+        carShows[carShows.length - 1] = carShow;
     }
 
     @Override
     public String toString() {//ref
         StringBuilder builder;
-        builder = new StringBuilder("\t\t\t\t" + city + "\n");
+        builder = new StringBuilder(city + "\n");
         
-        for (int i = 0; i < carShows.length; i++) {
-            builder.append(carShows[i][0].getBrand()).append("\n");
-            for (int j = 0; j < carShows[i].length; j++) {
-                builder.append(carShows[i][j].toString()).append("\n");
-            }
+        for (CarShow carShow : carShows) {
+            builder.append(carShow.toString());
         }
        
         return builder.toString();

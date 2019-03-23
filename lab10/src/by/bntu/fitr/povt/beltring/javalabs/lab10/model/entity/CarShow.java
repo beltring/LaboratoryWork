@@ -2,10 +2,11 @@ package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 
 import java.util.Arrays;
 
-public class CarShow { //автосалон
+public class CarShow {
     
     private String name;
     private Car[] cars;
+    //add number of visitors
 
     public CarShow() {
         cars = new Car[0];
