@@ -19,8 +19,9 @@ public class CalculatorTest {
     Music m2 = new Popular(10_500_000, 1, 126,"KAZKA");
     Music m3 = new Classic(4, 90, "Paul Mauriat");
     Music m4 = new Popular(9_320_000, 3, 100,"Max Korzh");
+    Music m5 = new Classic(1, 90, "Ludwig van Beethoven");
     
-    Music[] album = {m1, m2, m3, m4};
+    Music[] album = {m1, m2, m3, m4, m5};
     
     SoundRecording recording = null;
     SoundRecording recording1 = new SoundRecording("EverestMedia", album);
@@ -35,7 +36,7 @@ public class CalculatorTest {
     
     @Test
     public void testMinPlayTime1() {
-        Music[] expResult = {m3};
+        Music[] expResult = {m3, m5};
         Music[] result = Calculator.minPlayTime(recording1);
         assertArrayEquals(expResult, result);
     }
@@ -56,7 +57,7 @@ public class CalculatorTest {
     
     @Test
     public void testTotalTime1() {
-        int expResult = 415;
+        int expResult = 505;
         int result = Calculator.totalTime(recording1);
         assertEquals(expResult, result);
     }

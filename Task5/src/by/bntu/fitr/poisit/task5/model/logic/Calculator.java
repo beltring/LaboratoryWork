@@ -10,16 +10,23 @@ public class Calculator {
             return null;
         }
         
-        Music[] musics = new Music[1];
-        musics[0] = recording.get(0);
+        Music[] album = new Music[1];
+        album[0] = recording.get(0);
         
         for (int i = 0; i < recording.size(); i++) {
-            if(musics[0].getTime() > recording.get(i).getTime()){
-                musics[0] = recording.get(i);
+            if(album[0].getTime() > recording.get(i).getTime()){
+                album = new Music[0];
+                
+                album = Arrays.copyOf(album, album.length + 1);
+                album[album.length -1] = recording.get(i);
+            }
+            else if(album[0].getTime() == recording.get(i).getTime()){
+                album = Arrays.copyOf(album, album.length + 1);
+                album[album.length -1] = recording.get(i);
             }  
         }
         
-        return musics;
+        return album;
     }
     
     public static int totalTime(SoundRecording recording){

@@ -1,5 +1,7 @@
 package by.bntu.fitr.poisit.task5.model.entity;
 
+import java.util.Arrays;
+
 public class Music {
     static final int DEFAULT_TIME = 0; 
     static final String DEFAULT_NAME = "no name";
@@ -21,7 +23,7 @@ public class Music {
         time = music.time;
         singer = music.singer;
     }
-
+    
     public int getTime() {
         return time;
     }
