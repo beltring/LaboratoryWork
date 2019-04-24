@@ -1,31 +1,33 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-public class CarDealerNetwork {
-    private final int DEFAULT_SIZE = 0;
-    
-    private CarShow[] carShows; // ref CarShow
+public class CarDealerNetwork {   
+    private List<CarShow> carShows; 
     private String city;
 
     public CarDealerNetwork() {
-        carShows = new CarShow[DEFAULT_SIZE];
+        carShows = new ArrayList<>();
     }
 
     public CarDealerNetwork(String city) {
         this.city = city;
-        carShows = new CarShow[DEFAULT_SIZE];
+        carShows = new ArrayList<>();
     }
 
-    public CarDealerNetwork(CarShow[] carShows, String city) {
+    public CarDealerNetwork(List<CarShow> carShows, String city) {
         this.carShows = carShows;
         this.city = city;
     }
 
-    public CarDealerNetwork(CarDealerNetwork carDealerNetwork) {
-        city = carDealerNetwork.city;
-        carShows = Arrays.copyOf(carDealerNetwork.carShows, 
-                carDealerNetwork.carShows.length);
+    public CarDealerNetwork(CarDealerNetwork carDealer) {
+        city = carDealer.city;
+        carShows = new ArrayList<>();
+        for (CarShow carShow : carDealer.carShows) {
+            carShows.add(new CarShow(carShow));
+        }
     }
 
     public String getCity() {
@@ -37,13 +39,21 @@ public class CarDealerNetwork {
     }
     
     public void add(CarShow carShow){
-        carShows = Arrays.copyOf(carShows, carShows.length + 1);
-        
-        carShows[carShows.length - 1] = carShow;
+        carShows.add(carShow);
+    }
+    
+    public void size(){
+        carShows.size();
+    }
+    public void remove(CarShow carShow){
+        carShows.remove(carShow);
+    }
+    public void remove(int index){
+        carShows.remove(index);
     }
 
     @Override
-    public String toString() {//ref
+    public String toString() {
         StringBuilder builder;
         builder = new StringBuilder(city + "\n");
         

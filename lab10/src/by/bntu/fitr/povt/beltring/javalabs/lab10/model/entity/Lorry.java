@@ -1,8 +1,9 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 
 public class Lorry extends Car { // грузовик тоже что и минибас
+
     private final double MIN_CARGO_CAPACITY = 1.5; // минимальная грузоподъемность
-    
+
     private double cargoCapacity; // грузоподъемность
     private double cargoHeight; // высота груза
 
@@ -23,12 +24,18 @@ public class Lorry extends Car { // грузовик тоже что и мини
         this.cargoHeight = cargoHeight;
     }
 
+    public Lorry(Lorry lorry) {
+        super(lorry);
+        this.cargoCapacity = lorry.cargoCapacity;
+        this.cargoHeight = lorry.cargoHeight;
+    }
+
     public double getCargoCapacity() {
         return cargoCapacity;
     }
 
     public void setCargoCapacity(double cargoCapacity) {
-        if(cargoCapacity > MIN_CARGO_CAPACITY){
+        if (cargoCapacity > MIN_CARGO_CAPACITY) {
             this.cargoCapacity = cargoCapacity;
         }
     }
@@ -38,17 +45,16 @@ public class Lorry extends Car { // грузовик тоже что и мини
     }
 
     public void setCargoHeight(double cargoHeight) {
-        if(cargoHeight > 0){
+        if (cargoHeight > 0) {
             this.cargoHeight = cargoHeight;
         }
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", cargo capacity:" + cargoCapacity 
-                + " tons', cargo height:" 
-                + cargoHeight + " metres')";
+        return super.toString() + ", cargo capacity:" + cargoCapacity
+                + " tons', cargo height:"
+                + cargoHeight + " metres' \n";
     }
-    
-    
+
 }

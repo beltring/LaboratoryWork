@@ -1,6 +1,6 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 
-public class MiniBus extends Car{ //коструктрр копирования
+public class MiniBus extends Car{
     private final int MIN_NUMBER_OF_SEATS = 10;
     
     private int numberOfSeats;
@@ -20,6 +20,11 @@ public class MiniBus extends Car{ //коструктрр копирования
         super(car);
         this.numberOfSeats = numberOfSeats;
     }
+    
+    public MiniBus(MiniBus miniBus){
+        super(miniBus);
+        this.numberOfSeats = miniBus.numberOfSeats;
+    }
 
     public int getNumberOfSeats() {
         return numberOfSeats;
@@ -33,7 +38,7 @@ public class MiniBus extends Car{ //коструктрр копирования
     @Override
     public String toString() {
         return super.toString() + ", number of seats for passengers:" 
-                + numberOfSeats + ")";
+                + numberOfSeats + "\n";
     }
     
 }
