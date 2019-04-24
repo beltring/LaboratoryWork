@@ -1,5 +1,7 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.controller;
 
+import by.bntu.fitr.povt.beltring.javalabs.lab10.exception.DataException;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.exception.InputException;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Car;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.CarDealerNetwork;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.CarShow;
@@ -24,14 +26,17 @@ public class Lab10 {
             carShow1.add(Initialization.createCarObject("AUDI"));
             carShow2.add(Initialization.createCarObject("BMW"));
         }
+        try{
+            UserInput.inputInt("sds");
+        }catch(InputException e){
+            Printer.print(e.getMessage());
+        }
         
-        Lorry lorry = new Lorry(1200, 1.8 , Initialization.createCarObject("Mersedes"));
-        Printer.print(lorry);
-        Lorry lorry1 = new Lorry(lorry);
-        lorry = null;
-        Printer.print(lorry);
-        Printer.print(lorry1);
-        
+        try{
+            carShow1.get(5);
+        }catch(DataException e){
+            Printer.print(e.getMessage());
+        }
         //carShow2.add(Initialization.createCarObject("BMW"));
         
         //CarDealerNetwork carNetwork = new CarDealerNetwork("Minsk");

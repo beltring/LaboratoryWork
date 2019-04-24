@@ -1,8 +1,10 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 
-import by.bntu.fitr.povt.beltring.javalabs.lab10.util.Const;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.exception.DataException;
+import static by.bntu.fitr.povt.beltring.javalabs.lab10.util.Const.*;
 
 public class Car {
+
     private String bodyNumber;
     private int year;
     private String brand;
@@ -12,14 +14,14 @@ public class Car {
 
     public Car() {
         bodyNumber = "";
-        year = Const.DEFAULT_VALUE;
+        year = DEFAULT_VALUE;
         brand = "no name";
-        cost = Const.DEFAULT_VALUE;
-        kilometrage = Const.DEFAULT_VALUE;
-        warrantyPeriod = Const.DEFAULT_VALUE;
+        cost = DEFAULT_VALUE;
+        kilometrage = DEFAULT_VALUE;
+        warrantyPeriod = DEFAULT_VALUE;
     }
-    
-    public Car(String bodyNumber, int year, String brand, int cost, int kilometrage, int warrantyPeriod){
+
+    public Car(String bodyNumber, int year, String brand, int cost, int kilometrage, int warrantyPeriod) {
         this.bodyNumber = bodyNumber;
         this.year = year;
         this.brand = brand;
@@ -27,8 +29,8 @@ public class Car {
         this.kilometrage = kilometrage;
         this.warrantyPeriod = warrantyPeriod;
     }
-    
-    public Car(Car car){
+
+    public Car(Car car) {
         bodyNumber = car.bodyNumber;
         year = car.year;
         brand = car.brand;
@@ -49,17 +51,22 @@ public class Car {
         return year;
     }
 
-    public void setYear(int year) {
-        if(year > Const.RELEASE_FIRST_CAR){
-          this.year = year;  
+    public void setYear(int year) throws DataException {
+        if (year < RELEASE_FIRST_CAR) {
+            throw new DataException("Year of manufacture must be greater than "
+                    + RELEASE_FIRST_CAR + "\n");
         }
+        this.year = year;
     }
 
     public String getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(String brand) throws DataException {
+        if (brand == null) {
+            throw new DataException("Brand cannot be null\n");
+        }
         this.brand = brand;
     }
 
@@ -67,36 +74,39 @@ public class Car {
         return cost;
     }
 
-    public void setCost(int cost) {
-        if(cost > 0){
-           this.cost = cost; 
-        } 
+    public void setCost(int cost) throws DataException {
+        if (cost <= 0) {
+            throw new DataException("Price must be greater than 0\n");
+        }
+        this.cost = cost;
     }
 
     public int getKilometrage() {
         return kilometrage;
     }
 
-    public void setKilometrage(int kilometrage) {
-        if(kilometrage > 0){
-           this.kilometrage = kilometrage; 
+    public void setKilometrage(int kilometrage) throws DataException {
+        if (kilometrage < 0) {
+            throw new DataException("Kilometrage cannot be less than 0\n");
         }
+        this.kilometrage = kilometrage;
     }
 
     public int getWarrantyPeriod() {
         return warrantyPeriod;
     }
 
-    public void setWarrantyPeriod(int warrantyPeriod) {
-        if(warrantyPeriod > 0){
-            this.warrantyPeriod = warrantyPeriod;   
+    public void setWarrantyPeriod(int warrantyPeriod) throws DataException {
+        if (warrantyPeriod < 0) {
+            throw new DataException("Warranty period cannot be less than 0\n");
         }
+        this.warrantyPeriod = warrantyPeriod;
     }
-    
+
     @Override
-    public String toString(){ 
-        return brand + ":  body number:"+bodyNumber +", year:" + year 
-                + ", cost:" + cost + "$, kilometrage:" + kilometrage 
-                + ", warranty period:" + warrantyPeriod +" year";
+    public String toString() {
+        return brand + ":  body number:" + bodyNumber + ", year:" + year
+                + ", cost:" + cost + "$, kilometrage:" + kilometrage
+                + ", warranty period:" + warrantyPeriod + " year";
     }
 }

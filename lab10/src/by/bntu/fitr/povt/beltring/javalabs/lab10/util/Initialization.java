@@ -1,6 +1,8 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.util;
 
+import by.bntu.fitr.povt.beltring.javalabs.lab10.exception.InputException;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Car;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.view.Printer;
 import java.util.UUID;
 
 public class Initialization {
@@ -14,20 +16,27 @@ public class Initialization {
         int warrantyPeriod = rnd(Const.MIN_WARRANTY_PERIOD,
                 Const.MAX_WARRANTY_PERIOD);
 
-        return new Car(bodyNumber, year, brand, cost, 
+        return new Car(bodyNumber, year, brand, cost,
                 kilometrage, warrantyPeriod);
     }
 
     public static Car createCarObject() {
-        String brand = UserInput.inputStr("Enter brand:");
-        String bodyNumber = UserInput.inputStr("Enter body number:");
-        int year = UserInput.inputInt("Enter the year of release:");
-        int cost = UserInput.inputInt("Enter the cost:");
-        int kilometrage = UserInput.inputInt("Enter the mileage of the car:");
-        int warrantyPeriod = UserInput.inputInt("Enter the warranty period:");
+        Car car = null;
 
-        return new Car(bodyNumber, year, brand, cost, 
-                kilometrage, warrantyPeriod);
+        try {
+            String brand = UserInput.inputStr("Enter brand:");
+            String bodyNumber = UserInput.inputStr("Enter body number:");
+            int year = UserInput.inputInt("Enter the year of release:");
+            int cost = UserInput.inputInt("Enter the cost:");
+            int kilometrage = UserInput.inputInt("Enter the mileage of the car:");
+            int warrantyPeriod = UserInput.inputInt("Enter the warranty period:");
+            car = new Car(bodyNumber, year, brand, cost,
+                    kilometrage, warrantyPeriod);
+        } catch (InputException e) {
+            Printer.print(e.getMessage());
+        }
+
+        return car;
     }
 
     public static int rnd(int min, int max) {

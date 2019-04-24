@@ -1,7 +1,7 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 
+import by.bntu.fitr.povt.beltring.javalabs.lab10.exception.DataException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CarShow {
@@ -36,7 +36,10 @@ public class CarShow {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws DataException {
+        if (name == null) {
+            throw new DataException("Car show name cannot be null\n");
+        }
         this.name = name;
     }
 
@@ -48,7 +51,11 @@ public class CarShow {
         this.cars = cars;
     }
 
-    public Car get(int index) {
+    public Car get(int index) throws DataException {
+        if (index < 0 || index >= cars.size()) {
+            throw new DataException("Index should be less than size "
+                    + "and more or equal to 0\n");
+        }
         return cars.get(index);
     }
 
@@ -60,7 +67,11 @@ public class CarShow {
         cars.add(car);
     }
 
-    public void remove(String bodyNumber) {
+    public void remove(String bodyNumber) throws DataException {
+        if (bodyNumber == null) {
+            throw new DataException("Body Number cannot be null\n");
+        }
+
         for (int i = 0; i < cars.size(); i++) {
             if (cars.get(i).getBodyNumber().equals(bodyNumber)) {
                 cars.remove(cars.get(i));
@@ -68,8 +79,13 @@ public class CarShow {
             }
         }
     }
-    
-    public void remove(int index) {
+
+    public void remove(int index) throws DataException {
+        if (index < 0 || index >= cars.size()) {
+            throw new DataException("Index should be less than size and "
+                    + "more or equal to 0\n");
+        }
+
         cars.remove(index);
     }
 
