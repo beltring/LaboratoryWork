@@ -43,7 +43,10 @@ public class Car {
         return bodyNumber;
     }
 
-    public void setBodyNumber(String bodyNumber) {
+    public void setBodyNumber(String bodyNumber) throws DataException {
+        if (bodyNumber == null) {
+            throw new DataException("Brand cannot be null\n");
+        }
         this.bodyNumber = bodyNumber;
     }
 

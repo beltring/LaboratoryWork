@@ -8,7 +8,8 @@ import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.CarShow;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Lorry;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.MiniBus;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.logic.Сonsultant;
-import by.bntu.fitr.povt.beltring.javalabs.lab10.util.Initialization;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.util.Creator;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.util.Initializer;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.util.UserInput;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.view.Printer;
 import java.util.Arrays;
@@ -23,13 +24,10 @@ public class Lab10 {
         CarShow carShow2 = new CarShow("BMW");
         
         for (int i = 0; i < 4; i++) {
-            carShow1.add(Initialization.createCarObject("AUDI"));
-            carShow2.add(Initialization.createCarObject("BMW"));
-        }
-        try{
-            UserInput.inputInt("sds");
-        }catch(InputException e){
-            Printer.print(e.getMessage());
+            Car car1 = Creator.CreateCarObject();
+            Car car2 = Creator.CreateCarObject();
+            carShow1.add(Initializer.initCarObject(car1));
+            carShow2.add(Initializer.initCarObject(car2));
         }
         
         try{
@@ -37,7 +35,7 @@ public class Lab10 {
         }catch(DataException e){
             Printer.print(e.getMessage());
         }
-        //carShow2.add(Initialization.createCarObject("BMW"));
+        //carShow2.add(Initializer.createCarObject("BMW"));
         
         //CarDealerNetwork carNetwork = new CarDealerNetwork("Minsk");
         //carNetwork.add(carShow1);
@@ -52,7 +50,7 @@ public class Lab10 {
 //            
 //            switch(choice){
 //                case 1: Printer.print(carNetwork); break;
-//                case 2: Car car = Initialization.createCarObject(); 
+//                case 2: Car car = Initializer.createCarObject(); 
 //                carShow1.add(car); break;
 //                case 3: String bodyNumber = UserInput.inputStr("Enter "
 //                        + "the number of the car body:");

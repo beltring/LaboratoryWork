@@ -13,5 +13,7 @@ public class Const {
     public static final int RELEASE_FIRST_CAR = 1885;
     public static final int DEFAULT_VALUE = 0;
     public static final double MIN_CARGO_CAPACITY = 1.5;
+    public static final double MAX_CARGO_CAPACITY = 3.5;
+    public static final double MAX_CARGO_HEIGHT = 2.0;
     public static final int MIN_NUMBER_OF_SEATS = 10;
 }
