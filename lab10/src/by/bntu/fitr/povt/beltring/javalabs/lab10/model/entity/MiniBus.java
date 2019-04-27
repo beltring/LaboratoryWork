@@ -1,6 +1,6 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 
-import by.bntu.fitr.povt.beltring.javalabs.lab10.exception.DataException;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.model.exception.DataException;
 import static by.bntu.fitr.povt.beltring.javalabs.lab10.util.Const.*;
 
 public class MiniBus extends Car {
@@ -33,11 +33,13 @@ public class MiniBus extends Car {
     }
 
     public void setNumberOfSeats(int numberOfSeats) throws DataException {
-        if (numberOfSeats < MIN_NUMBER_OF_SEATS) {
+        if (numberOfSeats >= MIN_NUMBER_OF_SEATS) {
+            this.numberOfSeats = numberOfSeats;
+
+        } else {
             throw new DataException("The number of seats must be "
                     + "greater than " + MIN_NUMBER_OF_SEATS + "\n");
         }
-        this.numberOfSeats = numberOfSeats;
     }
 
     @Override

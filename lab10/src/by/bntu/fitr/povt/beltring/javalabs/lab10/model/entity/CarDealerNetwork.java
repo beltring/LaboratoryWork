@@ -1,6 +1,6 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 
-import by.bntu.fitr.povt.beltring.javalabs.lab10.exception.DataException;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.model.exception.DataException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,10 +36,12 @@ public class CarDealerNetwork {
     }
 
     public void setCity(String city) throws DataException {
-        if (city == null) {
+        if (city != null) {
+            this.city = city;
+
+        } else {
             throw new DataException("Body Number cannot be null\n");
         }
-        this.city = city;
     }
 
     public void add(CarShow carShow) {
@@ -51,18 +53,22 @@ public class CarDealerNetwork {
     }
 
     public void remove(CarShow carShow) throws DataException {
-        if (carShow == null) {
+        if (carShow != null) {
+            carShows.remove(carShow);
+
+        } else {
             throw new DataException("Car show cannot be null\n");
         }
-        carShows.remove(carShow);
     }
 
     public void remove(int index) throws DataException {
-        if (index < 0 || index >= carShows.size()) {
+        if (index >= 0 && index < carShows.size()) {
+            carShows.remove(index);
+
+        } else {
             throw new DataException("Index should be less than size "
                     + "and more or equal to 0\n");
         }
-        carShows.remove(index);
     }
 
     @Override

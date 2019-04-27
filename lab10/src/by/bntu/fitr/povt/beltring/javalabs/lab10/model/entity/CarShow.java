@@ -1,6 +1,6 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 
-import by.bntu.fitr.povt.beltring.javalabs.lab10.exception.DataException;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.model.exception.DataException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,10 +37,13 @@ public class CarShow {
     }
 
     public void setName(String name) throws DataException {
-        if (name == null) {
+        if (name != null) {
             throw new DataException("Car show name cannot be null\n");
+        } else {
+
+            this.name = name;
         }
-        this.name = name;
+
     }
 
     public List<Car> getCars() {
@@ -52,11 +55,13 @@ public class CarShow {
     }
 
     public Car get(int index) throws DataException {
-        if (index < 0 || index >= cars.size()) {
+        if (index > 0 && index < cars.size()) {
+            return cars.get(index);
+
+        } else {
             throw new DataException("Index should be less than size "
                     + "and more or equal to 0\n");
         }
-        return cars.get(index);
     }
 
     public int size() {
@@ -68,25 +73,28 @@ public class CarShow {
     }
 
     public void remove(String bodyNumber) throws DataException {
-        if (bodyNumber == null) {
+        if (bodyNumber != null) {
+            for (int i = 0; i < cars.size(); i++) {
+                if (cars.get(i).getBodyNumber().equals(bodyNumber)) {
+                    cars.remove(cars.get(i));
+                    break;
+                }
+            }
+        } else {
             throw new DataException("Body Number cannot be null\n");
         }
 
-        for (int i = 0; i < cars.size(); i++) {
-            if (cars.get(i).getBodyNumber().equals(bodyNumber)) {
-                cars.remove(cars.get(i));
-                break;
-            }
-        }
     }
 
     public void remove(int index) throws DataException {
-        if (index < 0 || index >= cars.size()) {
+        if (index >= 0 && index < cars.size()) {
+            cars.remove(index);
+
+        } else {
             throw new DataException("Index should be less than size and "
                     + "more or equal to 0\n");
         }
 
-        cars.remove(index);
     }
 
     @Override

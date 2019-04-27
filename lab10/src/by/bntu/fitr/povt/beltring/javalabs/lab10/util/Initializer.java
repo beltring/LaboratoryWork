@@ -1,7 +1,7 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.util;
 
-import by.bntu.fitr.povt.beltring.javalabs.lab10.exception.DataException;
-import by.bntu.fitr.povt.beltring.javalabs.lab10.exception.InputException;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.model.exception.DataException;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.util.exception.InputException;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Car;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Lorry;
 import static by.bntu.fitr.povt.beltring.javalabs.lab10.util.Const.*;
@@ -113,7 +113,7 @@ public class Initializer {
 
     public static double randomDouble(double min, double max) {
         double number = min + Math.random() * (max - 1.5);
-
+        number = Math.round(number * 10.0) / 10.0;
         return number;
     }
 }

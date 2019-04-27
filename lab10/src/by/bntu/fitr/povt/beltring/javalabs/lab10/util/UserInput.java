@@ -1,6 +1,6 @@
 package by.bntu.fitr.povt.beltring.javalabs.lab10.util;
 
-import by.bntu.fitr.povt.beltring.javalabs.lab10.exception.InputException;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.util.exception.InputException;
 import java.util.Scanner;
 
 public class UserInput {

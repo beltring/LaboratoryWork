@@ -1,4 +1,4 @@
-package by.bntu.fitr.povt.beltring.javalabs.lab10.exception;
+package by.bntu.fitr.povt.beltring.javalabs.lab10.model.exception;
 
 public class DataException extends Exception{
 

@@ -1,4 +1,4 @@
-package by.bntu.fitr.povt.beltring.javalabs.lab10.exception;
+package by.bntu.fitr.povt.beltring.javalabs.lab10.util.exception;
 
 public class InputException extends Exception {
     public InputException() {
