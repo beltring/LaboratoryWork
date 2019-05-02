@@ -3,9 +3,13 @@ package by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.exception.DataException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class CarDealerNetwork {
 
+    private static final Logger LOG = LogManager.getLogger("CarDealerNetwork");
+    
     private List<CarShow> carShows;
     private String city;
 
@@ -46,6 +50,7 @@ public class CarDealerNetwork {
 
     public void add(CarShow carShow) {
         carShows.add(carShow);
+        LOG.debug("CarShow: " + carShow + " added");
     }
 
     public void size() {
@@ -54,8 +59,9 @@ public class CarDealerNetwork {
 
     public void remove(CarShow carShow) throws DataException {
         if (carShow != null) {
+            LOG.trace("CarShow: " + carShows.remove(carShow) + " remove");
             carShows.remove(carShow);
-
+                
         } else {
             throw new DataException("Car show cannot be null\n");
         }
@@ -63,6 +69,7 @@ public class CarDealerNetwork {
 
     public void remove(int index) throws DataException {
         if (index >= 0 && index < carShows.size()) {
+            LOG.trace("CarShow: " + carShows.remove(index) + " remove");
             carShows.remove(index);
 
         } else {

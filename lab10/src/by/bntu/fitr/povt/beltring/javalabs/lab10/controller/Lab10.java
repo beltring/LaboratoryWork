@@ -3,13 +3,22 @@ package by.bntu.fitr.povt.beltring.javalabs.lab10.controller;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.exception.DataException;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Car;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.CarShow;
-import by.bntu.fitr.povt.beltring.javalabs.lab10.model.logic.Сonsultant;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.model.logic.Consultant;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.util.Creator;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.util.Initializer;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.view.Printer;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 
 public class Lab10 {
-
+//    private static final Logger LOG;
+//    
+//    static{
+//        LOG = Logger.getRootLogger();
+//    }
+    //private static final Logger LOG = LogManager.getLogger(Lab10.class);
+    
     public static void main(String[] args) { // для тестов 
         boolean notExit = true;
         int choice;
@@ -25,10 +34,13 @@ public class Lab10 {
         
         try {
             Printer.print(carShow1.get(0));
-            carShow1.get(5);
+            //carShow1.get(5);
+            Consultant consultant = new Consultant();
+            Printer.print(consultant.maximumCarCost(carShow2));
         } catch (DataException e) {
             Printer.print(e.getMessage());
         }
+        
         //carShow2.add(Initializer.createCarObject("BMW"));
 
         //CarDealerNetwork carNetwork = new CarDealerNetwork("Minsk");
@@ -48,10 +60,10 @@ public class Lab10 {
 //                case 3: String bodyNumber = UserInput.inputStr("Enter "
 //                        + "the number of the car body:");
 //                        carShow1.remove(bodyNumber); break;
-//                case 4: Printer.print(Сonsultant.maximumCarCost(carShow1) + "\n"); break;
-//                case 5: Printer.print(Сonsultant.minimumCarCost(carShow1) + "\n"); break;
+//                case 4: Printer.print(Consultant.maximumCarCost(carShow1) + "\n"); break;
+//                case 5: Printer.print(Consultant.minimumCarCost(carShow1) + "\n"); break;
 //                case 6: int year = UserInput.inputInt("Enter car year:"); 
-//                        Car[] cars = Сonsultant.searchByYear(carShow1, year); 
+//                        Car[] cars = Consultant.searchByYear(carShow1, year); 
 //                        Printer.print(Arrays.toString(cars)); break;
 //                case 0: notExit = false; break;
 //            }

@@ -4,15 +4,19 @@ import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Car;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.CarShow;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Lorry;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.exception.DataException;
+import by.bntu.fitr.povt.beltring.javalabs.lab10.view.Printer;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class СonsultantTest {
-
+public class ConsultantTest {
+    private static final Logger LOG = LogManager.getLogger("ConsultantTest");
+    
     Car audiCar = new Car("HJTSDOP8", 2017, "AUDI", 21000, 15000, 1);
     Car bmwCar = new Car("ABCD87YH", 2016, "BMW", 21000, 33870, 1);
     Car bmwCar2 = new Car("URE56C7B", 2019, "BMW", 29250, 1925, 3);
@@ -30,11 +34,11 @@ public class СonsultantTest {
     CarShow carShow = new CarShow("AUDI", cars);
     CarShow carShow2 = new CarShow("BMW", cars2);
 
-    private static Сonsultant сonsultant = new Сonsultant();
-
+    private static Consultant сonsultant = new Consultant();
+   
     @BeforeClass
     public static void setUp() {
-        сonsultant = new Сonsultant();
+        сonsultant = new Consultant();
     }
 
     @Test(expected = DataException.class)
@@ -46,12 +50,12 @@ public class СonsultantTest {
     public void testMaximumCarCost1() {
 
         List<Car> expResult = Arrays.asList(bmwCar2);
-
+        
         try {
             List<Car> result = сonsultant.maximumCarCost(carShow);
             assertEquals(expResult, result);
         } catch (DataException e) {
-            fail("unexpected DataException");
+            LOG.warn("DataException has occured", e);
         }
 
     }
@@ -65,11 +69,11 @@ public class СonsultantTest {
             List<Car> result = сonsultant.maximumCarCost(carShow2);
             assertEquals(expResult, result);
         } catch (DataException e) {
-            fail("unexpected DataException");
+            LOG.warn("DataException has occured", e);
         }
     }
 
-    //Test of minimumCarCost method, of class Сonsultant.
+    //Test of minimumCarCost method, of class Consultant.
     @Test(expected = DataException.class)
     public void testMinimumCarCost_carShowNull_DataException() throws DataException {
         сonsultant.maximumCarCost(carShowNull);
@@ -83,7 +87,7 @@ public class СonsultantTest {
             List<Car> result = сonsultant.minimumCarCost(carShow);
             assertEquals(expResult, result);
         } catch (DataException e) {
-            fail("unexpected DataException");
+            LOG.warn("DataException has occured", e);
         }
     }
 
@@ -95,11 +99,11 @@ public class СonsultantTest {
             List<Car> result = сonsultant.minimumCarCost(carShow2);
             assertEquals(expResult, result);
         } catch (DataException e) {
-            fail("unexpected DataException");
+            LOG.warn("DataException has occured", e);
         }
     }
 
-    //Test of searchByYear method, of class Сonsultant.
+    //Test of searchByYear method, of class Consultant.
     @Test(expected = DataException.class)
     public void testSearchByYear_carShowNull_DataException() throws DataException {
         сonsultant.searchByYear(carShowNull, 2017);
@@ -118,7 +122,7 @@ public class СonsultantTest {
             List<Car> result = сonsultant.searchByYear(carShow2, 2019);
             assertEquals(expResult, result);
         } catch (DataException e) {
-            fail("unexpected DataException");
+            LOG.warn("DataException has occured", e);
         }
     }
 
@@ -130,7 +134,7 @@ public class СonsultantTest {
             List<Car> result = сonsultant.searchByYear(carShow2, 2017);
             assertEquals(expResult, result);
         } catch (DataException e) {
-            fail("unexpected DataException");
+            LOG.warn("DataException has occured", e);
         }
     }
 
@@ -143,11 +147,11 @@ public class СonsultantTest {
             List<Car> result = сonsultant.searchByYear(carShow2, 2005);
             assertEquals(expResult, result);
         } catch (DataException e) {
-            fail("unexpected DataException");
+            LOG.warn("DataException has occured", e);
         }
     }
 
-    //Test of maximumCargoCapacity method, of class Сonsultant.
+    //Test of maximumCargoCapacity method, of class Consultant.
     @Test(expected = DataException.class)
     public void testMaxCargoCapacity_carShowNull_DataException() throws
             DataException {
@@ -163,7 +167,7 @@ public class СonsultantTest {
             List<Car> result = сonsultant.maximumCargoCapacity(carShow2);
             assertEquals(expResult, result);
         } catch (DataException e) {
-            fail("unexpected DataException");
+            LOG.warn("DataException has occured", e);
         }
     }
 

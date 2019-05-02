@@ -42,7 +42,8 @@ public class Lorry extends Car {
     }
 
     public void setCargoCapacity(double cargoCapacity) throws DataException {
-        if (cargoCapacity > MIN_CARGO_CAPACITY) {
+        if (cargoCapacity > MIN_CARGO_CAPACITY 
+                && cargoCapacity <= MAX_CARGO_CAPACITY) {
             this.cargoCapacity = cargoCapacity;
 
         } else {

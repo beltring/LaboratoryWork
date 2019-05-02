@@ -5,11 +5,16 @@ import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Car;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.CarShow;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Lorry;
 import static by.bntu.fitr.povt.beltring.javalabs.lab10.util.Const.*;
+
 import java.util.LinkedList;
 import java.util.List;
 
-public class Сonsultant {
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
+public class Consultant {
+    private static final Logger LOG = LogManager.getLogger("Cosultant");
+    
     public List<Car> maximumCarCost(CarShow carShow) throws DataException {
 
         if (carShow == null) {
@@ -19,6 +24,7 @@ public class Сonsultant {
         List<Car> maxCar = new LinkedList<>();
         maxCar.add(carShow.get(0));
 
+        LOG.debug("Finding the maximum cost of the car");
         for (int i = 1; i < carShow.size(); i++) {
 
             if (maxCar.get(0).getCost() < carShow.get(i).getCost()) {
@@ -28,7 +34,10 @@ public class Сonsultant {
                 maxCar.add(carShow.get(i));
             }
         }
-
+        
+        int max = maxCar.get(0).getCost();
+        LOG.trace("Found the car with the maximum cost " + max);
+        
         return maxCar;
     }
 
@@ -40,6 +49,7 @@ public class Сonsultant {
         List<Car> minCar = new LinkedList<>();
         minCar.add(carShow.get(0));
 
+        LOG.debug("Finding the minimum cost of the car");
         for (int i = 1; i < carShow.size(); i++) {
 
             if (minCar.get(0).getCost() > carShow.get(i).getCost()) {
@@ -50,6 +60,10 @@ public class Сonsultant {
             }
 
         }
+        
+        int min = minCar.get(0).getCost();
+        LOG.trace("Found the car with the minimum cost " + min);
+        
         return minCar;
     }
 
@@ -63,11 +77,13 @@ public class Сonsultant {
         }
 
         List<Car> cars = new LinkedList<>();
-
+        LOG.debug("Car search by year of manufacture");
+        
         for (int i = 0; i < carShow.size(); i++) {
-
+            
             if (carShow.get(i).getYear() == year) {
                 cars.add(carShow.get(i));
+                LOG.trace("Found car " + year +" release");
             }
         }
         return cars;
@@ -83,6 +99,7 @@ public class Сonsultant {
         List<Car> maxCar = new LinkedList<>();
         Lorry lorry;
 
+        LOG.debug("Search for the maximum load capacity of the car");
         for (int i = 1; i < carShow.size(); i++) {
 
             if (carShow.get(i) instanceof Lorry) {
@@ -97,7 +114,9 @@ public class Сonsultant {
                 }
             }
         }
-
+        
+        LOG.trace("Found a car with a maximum capacity of " + max + "tons");
+        
         return maxCar;
     }
 }

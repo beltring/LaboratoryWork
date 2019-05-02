@@ -4,8 +4,12 @@ import by.bntu.fitr.povt.beltring.javalabs.lab10.model.exception.DataException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarShow {
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
+public class CarShow {
+    private static final Logger LOG = LogManager.getLogger("CarShow");
+    
     private String name;
     private List<Car> cars;
     //add number of visitors
@@ -55,7 +59,7 @@ public class CarShow {
     }
 
     public Car get(int index) throws DataException {
-        if (index > 0 && index < cars.size()) {
+        if (index >= 0 && index < cars.size()) {
             return cars.get(index);
 
         } else {
@@ -70,12 +74,14 @@ public class CarShow {
 
     public void add(Car car) {
         cars.add(car);
+        LOG.debug("Car: " + car + " added");
     }
 
     public void remove(String bodyNumber) throws DataException {
         if (bodyNumber != null) {
             for (int i = 0; i < cars.size(); i++) {
                 if (cars.get(i).getBodyNumber().equals(bodyNumber)) {
+                    LOG.trace("Car: " + cars.get(i) + " remove");
                     cars.remove(cars.get(i));
                     break;
                 }
