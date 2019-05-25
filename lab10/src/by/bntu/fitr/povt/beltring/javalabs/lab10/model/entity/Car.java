@@ -8,7 +8,7 @@ public class Car {
     private String bodyNumber;
     private int year;
     private String brand;
-    private int cost;
+    private double cost;
     private int kilometrage;
     private int warrantyPeriod;
 
@@ -79,7 +79,7 @@ public class Car {
         }
     }
 
-    public int getCost() {
+    public double getCost() {
         return cost;
     }
 

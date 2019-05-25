@@ -4,7 +4,6 @@ import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Car;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.CarShow;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.entity.Lorry;
 import by.bntu.fitr.povt.beltring.javalabs.lab10.model.exception.DataException;
-import by.bntu.fitr.povt.beltring.javalabs.lab10.view.Printer;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,7 +14,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ConsultantTest {
-    private static final Logger LOG = LogManager.getLogger("ConsultantTest");
+    private static final Logger LOG = 
+            LogManager.getLogger(ConsultantTest.class);
     
     Car audiCar = new Car("HJTSDOP8", 2017, "AUDI", 21000, 15000, 1);
     Car bmwCar = new Car("ABCD87YH", 2016, "BMW", 21000, 33870, 1);
@@ -30,7 +30,7 @@ public class ConsultantTest {
     List<Car> cars2 = Arrays.asList(audiCar2, bmwCar, bmwCar2, audiCar,
             lorryBus1, lorryBus2);
 
-    CarShow carShowNull = null;
+    CarShow carShowNull = null; // ref
     CarShow carShow = new CarShow("AUDI", cars);
     CarShow carShow2 = new CarShow("BMW", cars2);
 

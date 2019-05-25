@@ -82,7 +82,7 @@ public class Initializer {
             int year = randomInt(MIN_YEAR, MAX_YEAR);
             lorry.setYear(year);
 
-            int cost = randomInt(Const.MIN_COST, Const.MAX_COST);
+            int cost = randomInt(MIN_COST, MAX_COST);
             lorry.setCost(cost);
 
             int kilometrage = randomInt(0, MAX_KILOMETRAGE);

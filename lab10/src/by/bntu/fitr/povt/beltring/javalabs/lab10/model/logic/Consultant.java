@@ -13,11 +13,11 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 public class Consultant {
-    private static final Logger LOG = LogManager.getLogger("Cosultant");
+    private static final Logger LOG = LogManager.getLogger(Consultant.class);
     
     public List<Car> maximumCarCost(CarShow carShow) throws DataException {
 
-        if (carShow == null) {
+        if (carShow == null) { // ref
             throw new DataException("Car show cannot be null");
         }
 

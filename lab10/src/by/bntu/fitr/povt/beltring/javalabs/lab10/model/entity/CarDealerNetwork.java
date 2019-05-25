@@ -8,7 +8,8 @@ import org.apache.log4j.Logger;
 
 public class CarDealerNetwork {
 
-    private static final Logger LOG = LogManager.getLogger("CarDealerNetwork");
+    private static final Logger LOG = 
+            LogManager.getLogger(CarDealerNetwork.class);
     
     private List<CarShow> carShows;
     private String city;

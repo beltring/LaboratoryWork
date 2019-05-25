@@ -28,6 +28,13 @@ public class MiniBus extends Car {
         this.numberOfSeats = miniBus.numberOfSeats;
     }
 
+    @Override
+    public double getCost(){
+        double cost = super.getCost() * DEFAULT_RATIO 
+                * super.getWarrantyPeriod();
+        return cost;
+        
+    }
     public int getNumberOfSeats() {
         return numberOfSeats;
     }
