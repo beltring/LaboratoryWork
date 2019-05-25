@@ -35,7 +35,7 @@ public class Consultant {
             }
         }
         
-        int max = maxCar.get(0).getCost();
+        double max = maxCar.get(0).getCost();
         LOG.trace("Found the car with the maximum cost " + max);
         
         return maxCar;
@@ -61,7 +61,7 @@ public class Consultant {
 
         }
         
-        int min = minCar.get(0).getCost();
+        double min = minCar.get(0).getCost();
         LOG.trace("Found the car with the minimum cost " + min);
         
         return minCar;

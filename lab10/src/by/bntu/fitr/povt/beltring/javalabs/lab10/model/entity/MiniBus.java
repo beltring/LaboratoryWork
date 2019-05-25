@@ -30,8 +30,8 @@ public class MiniBus extends Car {
 
     @Override
     public double getCost(){
-        double cost = super.getCost() * DEFAULT_RATIO 
-                * super.getWarrantyPeriod();
+        int year = DEFAULT_YEAR_RATIO - super.getYear();
+        double cost = super.getCost() * DEFAULT_RATIO * year;
         return cost;
         
     }

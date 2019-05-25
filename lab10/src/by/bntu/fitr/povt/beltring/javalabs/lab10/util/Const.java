@@ -17,4 +17,5 @@ public class Const {
     public static final double MAX_CARGO_HEIGHT = 2.0;
     public static final int MIN_NUMBER_OF_SEATS = 10;
     public static final double DEFAULT_RATIO = 0.25;
+    public static final int DEFAULT_YEAR_RATIO = 2020;
 }
